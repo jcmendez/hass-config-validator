@@ -1,0 +1,16 @@
+# action.yml
+name: 'Validate config'
+description: 'Validates the configuration'
+inputs:
+  config-path:  # path to the config directory
+    description: 'Path to the config directory'
+    required: true
+    default: '.'
+outputs:
+  result-code: # result code of the validation
+    description: 'Result code of the validation'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.config-path }}
